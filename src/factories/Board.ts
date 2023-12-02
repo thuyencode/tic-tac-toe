@@ -1,3 +1,4 @@
+import { SLOTS_COUNT } from '../libs/constants'
 import { Mark } from '../libs/types'
 
 /**
@@ -19,7 +20,7 @@ export function Board(mark1: Mark, mark2: Mark) {
     '..?.?.?..'
   ]
 
-  const board = Array<string>(9).fill('.')
+  const board = Array<string>(SLOTS_COUNT).fill('.')
 
   const getBoard = () => board
 
