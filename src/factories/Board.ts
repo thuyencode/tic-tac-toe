@@ -27,7 +27,7 @@ export function Board(mark1: Mark, mark2: Mark) {
   /**
    * Checks if the game board is full.
    *
-   * @return {boolean} Returns true if the board is full, false otherwise.
+   * @return {boolean} Returns `true` if the board is full, `false` otherwise.
    */
   const isBoardFull = () => {
     for (const mark of board) {
