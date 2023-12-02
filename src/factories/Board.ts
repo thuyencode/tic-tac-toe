@@ -98,5 +98,12 @@ export function Board(mark1: Mark, mark2: Mark) {
     board[index] = mark
   }
 
-  return { getBoard, isBoardFull, getWinner, setMove }
+  /**
+   * Reset the board.
+   */
+  const resetBoard = () => {
+    board.fill('.')
+  }
+
+  return { getBoard, isBoardFull, getWinner, setMove, resetBoard }
 }

@@ -48,16 +48,17 @@ export function TicTacToe(mark1: Mark, mark2: Mark) {
   }
 
   /**
-   * Resets the score of both players.
+   * Resets the score of both players and the board.
    */
-  const resetScore = () => {
+  const resetAll = () => {
     player1.resetScore()
     player2.resetScore()
+    board.resetBoard()
   }
 
   const board = Board(mark1, mark2)
   const player1 = createPlayer(mark1)
   const player2 = createPlayer(mark2)
 
-  return { board, player1, player2, resetScore }
+  return { board, player1, player2, resetAll }
 }
