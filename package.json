@@ -4,14 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host",
+    "test": "bun test --watch"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
     "autoprefixer": "^10.4.16",
+    "bun-types": "^1.0.14",
     "cssnano": "^6.0.1",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.0.0",
