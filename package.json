@@ -27,5 +27,8 @@
     "vite": "^5.0.4",
     "vite-plugin-simple-html": "^0.1.0",
     "vite-plugin-webfont-dl": "^3.9.1"
+  },
+  "dependencies": {
+    "iconify-icon": "^1.0.8"
   }
 }
