@@ -6,10 +6,11 @@ export default {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    'standard'
+    'standard',
+    'plugin:jsdoc/recommended-typescript'
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'jsdoc'],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' }
 }
