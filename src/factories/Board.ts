@@ -20,8 +20,8 @@ export function Board(mark1: Mark, mark2: Mark) {
     '..?.?.?..'
   ]
 
-  const emptySlots = Array.from(Array(SLOTS_COUNT).keys())
   const board = Array<string>(SLOTS_COUNT).fill('.')
+  const emptySlots = Array.from(board.keys())
 
   const getBoard = () => board
 
