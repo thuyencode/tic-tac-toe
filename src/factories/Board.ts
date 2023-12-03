@@ -109,12 +109,23 @@ export function Board(mark1: Mark, mark2: Mark) {
 
   const getEmptySlots = () => emptySlots
 
+  const getWinningIndexes = () => {
+    if (getWinner() === undefined) return
+
+    return board
+      .map((mark, index) => {
+        if (mark === getWinner()) return index
+      })
+      .filter((item) => item !== undefined)
+  }
+
   return {
     getBoard,
     isBoardFull,
     getWinner,
     setMove,
     resetBoard,
-    getEmptySlots
+    getEmptySlots,
+    getWinningIndexes
   }
 }

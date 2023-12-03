@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test'
 import { TicTacToe } from '../TicTacToe'
 
-describe('Unit tests for Board.ts', () => {
+describe('Unit tests for TicTacToe.ts', () => {
   test('Should get the correct winner', () => {
     const game = TicTacToe('X', 'O')
 
