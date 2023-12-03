@@ -7,6 +7,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans]
+      },
+      height: {
+        screen: '100dvh'
       }
     }
   },

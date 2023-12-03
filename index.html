@@ -13,9 +13,46 @@
     <script type="module" src="src/main.ts"></script>
     <title>Tic Tac Toe | Thuyen Code | The Odin Project</title>
   </head>
-  <body class="bg-white">
-    <nav class="flex items-center justify-center gap-2 text-2xl">
-      Tic Tac Toe <iconify-icon icon="game-icons:tic-tac-toe"></iconify-icon>
+  <body class="bg-slate-900">
+    <nav
+      class="fixed top-0 flex w-screen items-center justify-center gap-2 bg-slate-800 py-4 text-3xl font-medium text-white shadow-md"
+    >
+      Tic Tac Toe
+      <iconify-icon
+        icon="game-icons:tic-tac-toe"
+        class="text-4xl"
+      ></iconify-icon>
     </nav>
+    <main class="flex h-screen items-center justify-center">
+      <div class="grid w-fit grid-cols-3 grid-rows-3 gap-1">
+        <button type="button" class="slot">
+          <iconify-icon icon="healthicons:x"></iconify-icon>
+        </button>
+        <button type="button" class="slot">
+          <iconify-icon icon="healthicons:x"></iconify-icon>
+        </button>
+        <button type="button" class="slot">
+          <iconify-icon icon="healthicons:x"></iconify-icon>
+        </button>
+        <button type="button" class="slot">
+          <iconify-icon icon="healthicons:x"></iconify-icon>
+        </button>
+        <button type="button" class="slot" disabled>
+          <iconify-icon icon="healthicons:o"></iconify-icon>
+        </button>
+        <button type="button" class="slot">
+          <iconify-icon icon="healthicons:x"></iconify-icon>
+        </button>
+        <button type="button" class="slot">
+          <iconify-icon icon="healthicons:x"></iconify-icon>
+        </button>
+        <button type="button" class="slot">
+          <iconify-icon icon="healthicons:x"></iconify-icon>
+        </button>
+        <button type="button" class="slot">
+          <iconify-icon icon="healthicons:x"></iconify-icon>
+        </button>
+      </div>
+    </main>
   </body>
 </html>
