@@ -1,10 +1,9 @@
-import { SLOTS_COUNT } from './constants'
-
 /**
- * Generates a random move from 0 to 8.
+ * Returns a random move from the given array of empty slots.
  *
- * @return {number} The randomly generated move.
+ * @param {Array<number>} emptySlots An array of numbers representing empty slots.
+ * @return {number} A random number from the array of empty slots.
  */
-export function getRandomMove() {
-  return Math.floor(Math.random() * SLOTS_COUNT)
+export function getRandomMove(emptySlots: Array<number>) {
+  return emptySlots[Math.floor(Math.random() * emptySlots.length)]
 }

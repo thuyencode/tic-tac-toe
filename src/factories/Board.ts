@@ -20,6 +20,7 @@ export function Board(mark1: Mark, mark2: Mark) {
     '..?.?.?..'
   ]
 
+  const emptySlots = Array.from(Array(SLOTS_COUNT).keys())
   const board = Array<string>(SLOTS_COUNT).fill('.')
 
   const getBoard = () => board
@@ -96,6 +97,7 @@ export function Board(mark1: Mark, mark2: Mark) {
     }
 
     board[index] = mark
+    emptySlots.splice(emptySlots.indexOf(index), 1)
   }
 
   /**
@@ -105,5 +107,14 @@ export function Board(mark1: Mark, mark2: Mark) {
     board.fill('.')
   }
 
-  return { getBoard, isBoardFull, getWinner, setMove, resetBoard }
+  const getEmptySlots = () => emptySlots
+
+  return {
+    getBoard,
+    isBoardFull,
+    getWinner,
+    setMove,
+    resetBoard,
+    getEmptySlots
+  }
 }
