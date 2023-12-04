@@ -18,6 +18,14 @@ function updateUI() {
   const btns = game.board.getBoard().map((slot, index) => {
     const btn = stringToHTML<HTMLButtonElement>(SLOT_BTN_TEMPLATE)
 
+    if (winningIndexes.length !== 0) {
+      if (winningIndexes.includes(index)) {
+        btn.classList.add('highlight')
+      }
+
+      btn.disabled = true
+    }
+
     if (slot !== '.') {
       switch (slot) {
         case 'X':
@@ -27,10 +35,6 @@ function updateUI() {
         case 'O':
           btn.innerHTML = MARK_ICONS.O
           break
-      }
-
-      if (winningIndexes.includes(index)) {
-        btn.classList.add('highlight')
       }
 
       btn.disabled = true
