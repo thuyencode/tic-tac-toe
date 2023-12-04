@@ -5,7 +5,8 @@ describe('Unit tests for TicTacToe.ts', () => {
   test('Should get the correct winner and winning indexes', () => {
     const game = TicTacToe('X', 'O')
 
-    expect(game.board.getWinner()).toBeUndefined()
+    expect(game.board.getWinner().mark).toBeUndefined()
+    expect(game.board.getWinner().winningIndexes).toBeEmpty()
 
     game.player1.setMove(0)
     game.player2.setMove(1)
@@ -19,7 +20,7 @@ describe('Unit tests for TicTacToe.ts', () => {
 
     expect(game.player1.isWinner()).toBeTrue()
     expect(game.player2.isWinner()).toBeFalse()
-    expect(game.board.getWinningIndexes()).toStrictEqual([0, 3, 6])
+    expect(game.board.getWinner().winningIndexes).toStrictEqual([0, 3, 6])
   })
 
   test('Should throw error when there are no empty slots', () => {

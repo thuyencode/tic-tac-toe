@@ -1,23 +1,16 @@
-import { SLOTS_COUNT } from '../libs/constants'
+import { MARKS, SLOTS_COUNT } from '../libs/constants'
 import { Mark } from '../libs/types'
 
-/**
- * Creates a new Board instance with the given marks.
- *
- * @param {Mark} mark1 The first mark to be used on the board.
- * @param {Mark} mark2 The second mark to be used on the board.
- * @return {Object} An object containing methods to interact with the board.
- */
 export function Board(mark1: Mark, mark2: Mark) {
   const WINNING_PATTERNS = [
-    '???......',
-    '...???...',
-    '......???',
-    '?..?..?..',
-    '.?..?..?.',
-    '..?..?..?',
-    '?...?...?',
-    '..?.?.?..'
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
   ]
 
   const board = Array<string>(SLOTS_COUNT).fill('.')
@@ -25,11 +18,6 @@ export function Board(mark1: Mark, mark2: Mark) {
 
   const getBoard = () => board
 
-  /**
-   * Checks if the game board is full.
-   *
-   * @return {boolean} Returns `true` if the board is full, `false` otherwise.
-   */
   const isBoardFull = () => {
     for (const mark of board) {
       if (mark === '.') {
@@ -40,45 +28,26 @@ export function Board(mark1: Mark, mark2: Mark) {
     return true
   }
 
-  /**
-   * Find the winner of the game based on the current state of the board.
-   *
-   * @return {string} The mark of the winner, or `undefined` if there is no winner.
-   */
   const getWinner = () => {
-    for (const pattern of WINNING_PATTERNS) {
-      const mark_1_pattern = board
-        .join('')
-        .replace(new RegExp(mark1, 'g'), '?')
-        .replace(new RegExp(mark2, 'g'), '.')
+    for (const mark of MARKS) {
+      for (const pattern of WINNING_PATTERNS) {
+        let win = true
 
-      if (mark_1_pattern === pattern) {
-        return mark1
-      }
+        for (const index of pattern) {
+          if (board[index] !== mark) {
+            win = false
+          }
+        }
 
-      const mark_2_pattern = board
-        .join('')
-        .replace(new RegExp(mark2, 'g'), '?')
-        .replace(new RegExp(mark1, 'g'), '.')
-
-      if (mark_2_pattern === pattern) {
-        return mark2
+        if (win) {
+          return { mark, winningIndexes: pattern }
+        }
       }
     }
 
-    return undefined
+    return { mark: undefined, winningIndexes: [] as number[] }
   }
 
-  /**
-   * Sets the specified mark at the given index on the board.
-   *
-   * @param {Mark} mark The mark to be set. Must be either mark1 or mark2.
-   * @param {number} index The index on the board where the mark will be set.
-   * @throws {Error} If the mark is invalid.
-   * @throws {Error} If the index is invalid.
-   * @throws {Error} If the board is full and there are no empty slots.
-   * @throws {Error} If the slot at the specified index is already occupied.
-   */
   const setMove = (mark: Mark, index: number) => {
     if (mark !== mark1 && mark !== mark2) {
       throw new Error(`Mark ${mark} is invalid`)
@@ -100,24 +69,12 @@ export function Board(mark1: Mark, mark2: Mark) {
     emptySlots.splice(emptySlots.indexOf(index), 1)
   }
 
-  /**
-   * Reset the board.
-   */
   const resetBoard = () => {
     board.fill('.')
+    emptySlots.splice(0, emptySlots.length, ...Array.from(board.keys()))
   }
 
   const getEmptySlots = () => emptySlots
-
-  const getWinningIndexes = () => {
-    if (getWinner() === undefined) return
-
-    return board
-      .map((mark, index) => {
-        if (mark === getWinner()) return index
-      })
-      .filter((item) => item !== undefined)
-  }
 
   return {
     getBoard,
@@ -125,7 +82,6 @@ export function Board(mark1: Mark, mark2: Mark) {
     getWinner,
     setMove,
     resetBoard,
-    getEmptySlots,
-    getWinningIndexes
+    getEmptySlots
   }
 }

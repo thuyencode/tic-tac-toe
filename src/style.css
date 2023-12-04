@@ -10,10 +10,14 @@
 
 @layer components {
   button[type='button'].slot {
-    @apply inline-flex h-[72px] w-[72px] items-center justify-center rounded-md border border-white p-5 text-3xl  font-semibold text-white hover:border-gray-300 hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-1 focus:ring-gray-600 disabled:pointer-events-none disabled:opacity-70;
+    @apply inline-flex h-16 w-16 items-center justify-center rounded-md border border-white p-5 text-2xl font-semibold text-white hover:border-gray-300 hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-1 focus:ring-gray-600 disabled:pointer-events-none disabled:opacity-70 sm:h-[72px] sm:w-[72px] sm:text-3xl;
   }
 
   .highlight {
-    @apply !bg-white !text-slate-900;
+    @apply !bg-white !text-slate-900 !opacity-100;
+  }
+
+  .modal-message {
+    @apply inline-flex items-center gap-1 sm:gap-2;
   }
 }
