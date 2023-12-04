@@ -26,12 +26,9 @@
       ></iconify-icon>
     </nav>
 
-    <main
-      class="flex h-full flex-col items-center justify-center gap-5 sm:gap-10"
-    >
-      <div
-        class="grid auto-rows-min grid-cols-2 place-items-center items-center justify-center gap-5 sm:flex sm:gap-20"
-      >
+    <main class="flex flex-col items-center justify-center gap-5 sm:gap-10">
+      <div class="grid grid-cols-2 place-items-center gap-5 sm:flex sm:gap-20">
+        <!-- Your score is shown here -->
         <div
           class="order-1 col-span-1 w-fit space-y-2 text-2xl sm:order-none sm:space-y-3 sm:text-3xl"
           id="player-score-wrapper"
@@ -44,11 +41,13 @@
           <span class="block text-center" id="player-score">0</span>
         </div>
 
+        <!-- The 3x3 Tic Tac Toe board is shown here -->
         <div
           class="order-last col-span-2 grid w-fit grid-cols-3 grid-rows-3 gap-1 sm:order-none"
           id="slot-container"
         ></div>
 
+        <!-- The score of the program -->
         <div
           class="order-1 col-span-1 w-fit space-y-2 text-2xl sm:order-none sm:space-y-3 sm:text-3xl"
           id="computer-score-wrapper"
@@ -100,9 +99,10 @@
       </a>
     </footer>
 
+    <!-- This modal is shown when an error is thrown -->
     <div
       id="error-modal"
-      class="hs-overlay pointer-events-none fixed inset-x-0 top-14 z-[60] mx-auto hidden w-fit rounded-lg border border-red-900 bg-red-800/10 font-sans text-base text-red-500 opacity-0 transition-all ease-out hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-backdrop-open:bg-transparent sm:top-20 sm:text-lg"
+      class="hs-overlay pointer-events-none fixed inset-x-0 top-16 z-[60] mx-auto hidden w-fit rounded-lg border border-red-900 bg-red-800/10 font-sans text-base text-red-500 opacity-0 transition-all ease-out hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-backdrop-open:bg-transparent sm:top-20 sm:text-lg"
     >
       <div class="inline-flex items-center gap-2 px-3 py-1 sm:gap-3">
         <div class="font-normal">
@@ -119,9 +119,11 @@
         </button>
       </div>
     </div>
+
+    <!-- This modal is shown when you win -->
     <div
       id="win-modal"
-      class="hs-overlay pointer-events-none fixed inset-x-0 top-14 z-[60] mx-auto hidden w-fit rounded-lg border border-teal-900 bg-teal-800/10 font-sans text-base text-teal-500 opacity-0 transition-all ease-out hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-backdrop-open:bg-transparent sm:top-20 sm:text-lg"
+      class="hs-overlay pointer-events-none fixed inset-x-0 top-16 z-[60] mx-auto hidden w-fit rounded-lg border border-teal-900 bg-teal-800/10 font-sans text-base text-teal-500 opacity-0 transition-all ease-out hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-backdrop-open:bg-transparent sm:top-20 sm:text-lg"
     >
       <div class="inline-flex items-center gap-2 px-3 py-1 sm:gap-3">
         <span class="modal-message font-semibold"></span>
@@ -135,9 +137,11 @@
         </button>
       </div>
     </div>
+
+    <!-- This modal is shown when somehow you lose bruh -->
     <div
       id="lose-modal"
-      class="hs-overlay pointer-events-none fixed inset-x-0 top-14 z-[60] mx-auto hidden w-fit rounded-lg border border-yellow-900 bg-yellow-800/10 font-sans text-base text-yellow-500 opacity-0 transition-all ease-out hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-backdrop-open:bg-transparent sm:top-20 sm:text-lg"
+      class="hs-overlay pointer-events-none fixed inset-x-0 top-16 z-[60] mx-auto hidden w-fit rounded-lg border border-yellow-900 bg-yellow-800/10 font-sans text-base text-yellow-500 opacity-0 transition-all ease-out hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-backdrop-open:bg-transparent sm:top-20 sm:text-lg"
     >
       <div class="inline-flex items-center gap-2 px-3 py-1 sm:gap-3">
         <span class="modal-message font-semibold"></span>
@@ -151,9 +155,11 @@
         </button>
       </div>
     </div>
+
+    <!-- This modal is shown when there's no winner -->
     <div
       id="tie-modal"
-      class="hs-overlay pointer-events-none fixed inset-x-0 top-14 z-[60] mx-auto hidden w-fit rounded-lg border border-blue-900 bg-blue-800/10 font-sans text-base text-blue-500 opacity-0 transition-all ease-out hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-backdrop-open:bg-transparent sm:top-20 sm:text-lg"
+      class="hs-overlay pointer-events-none fixed inset-x-0 top-16 z-[60] mx-auto hidden w-fit rounded-lg border border-blue-900 bg-blue-800/10 font-sans text-base text-blue-500 opacity-0 transition-all ease-out hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-backdrop-open:bg-transparent sm:top-20 sm:text-lg"
     >
       <div class="inline-flex items-center gap-2 px-3 py-1 sm:gap-3">
         <span class="modal-message font-semibold"></span>

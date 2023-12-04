@@ -13,7 +13,7 @@ export default {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         mono: ['Martian Mono', ...defaultTheme.fontFamily.mono]
       },
-      height: {
+      minHeight: {
         screen: '100dvh'
       }
     }
