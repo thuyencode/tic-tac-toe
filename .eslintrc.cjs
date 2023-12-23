@@ -7,8 +7,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'standard-with-typescript',
-    'prettier',
-    'plugin:jsdoc/recommended-typescript'
+    'prettier'
   ],
   overrides: [
     {
