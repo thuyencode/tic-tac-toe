@@ -1,23 +1,28 @@
 import { HSOverlay } from 'preline'
 
-export function getRandomMove(emptySlots: Array<number>) {
+export function getRandomMove(emptySlots: number[]): number {
   return emptySlots[Math.floor(Math.random() * emptySlots.length)]
 }
 
-export function stringToHTML<T extends Element = Element>(str: string) {
+export function stringToHTML<T extends Element = Element>(str: string): T {
   return new DOMParser().parseFromString(str, 'text/html').body.children[0] as T
 }
 
-export function showModal(selector: string, message: string) {
+export function showModal(selector: string, message: string): void {
   const modalEle = document.querySelector<HTMLElement>(selector)
-  const modalMessageEle =
-    modalEle!.querySelector<HTMLSpanElement>('.modal-message')
 
-  modalMessageEle!.innerHTML = message
+  if (modalEle !== null) {
+    const modalMessageEle =
+      modalEle.querySelector<HTMLSpanElement>('.modal-message')
 
-  HSOverlay.open(modalEle!)
+    if (modalMessageEle?.innerHTML !== undefined) {
+      modalMessageEle.innerHTML = message
+    }
 
-  setTimeout(() => {
-    HSOverlay.close(modalEle!)
-  }, 3000)
+    HSOverlay.open(modalEle)
+
+    setTimeout(() => {
+      HSOverlay.close(modalEle)
+    }, 3000)
+  }
 }

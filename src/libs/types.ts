@@ -1,3 +1,3 @@
-import { MARKS } from './constants'
+import type { MARKS } from './constants'
 
 export type Mark = (typeof MARKS)[number]

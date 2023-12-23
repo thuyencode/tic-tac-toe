@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import 'iconify-icon'
 import { TicTacToe } from './factories/TicTacToe'
 import { MARK_ICONS, SLOT_BTN_TEMPLATE } from './libs/constants'
@@ -12,7 +14,7 @@ import { getRandomMove, showModal, stringToHTML } from './libs/utils'
 
 const game = TicTacToe('X', 'O')
 
-function updateUI() {
+function updateUI(): void {
   const winningIndexes = game.board.getWinner()?.winningIndexes
 
   const btns = game.board.getBoard().map((slot, index) => {
@@ -39,7 +41,9 @@ function updateUI() {
 
       btn.disabled = true
     } else {
-      btn.addEventListener('click', () => slotEventHandler(index))
+      btn.addEventListener('click', () => {
+        slotEventHandler(index)
+      })
     }
 
     return btn
@@ -69,7 +73,7 @@ function updateUI() {
   }
 }
 
-function slotEventHandler(index: number) {
+function slotEventHandler(index: number): void {
   try {
     const emptySlots = game.board.getEmptySlots()
 
@@ -78,8 +82,10 @@ function slotEventHandler(index: number) {
     if (emptySlots.length !== 0) {
       game.player2.setMove(getRandomMove(emptySlots))
     }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error(error)
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     showModal('#error-modal', error.message)
   }
 

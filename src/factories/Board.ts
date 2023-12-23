@@ -1,6 +1,7 @@
 import { MARKS, SLOTS_COUNT } from '../libs/constants'
-import { Mark } from '../libs/types'
+import type { Mark } from '../libs/types'
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function Board(mark1: Mark, mark2: Mark) {
   const WINNING_PATTERNS = [
     [0, 1, 2],
@@ -16,9 +17,9 @@ export function Board(mark1: Mark, mark2: Mark) {
   const board = Array<string>(SLOTS_COUNT).fill('.')
   const emptySlots = Array.from(board.keys())
 
-  const getBoard = () => board
+  const getBoard = (): string[] => board
 
-  const isBoardFull = () => {
+  const isBoardFull = (): boolean => {
     for (const mark of board) {
       if (mark === '.') {
         return false
@@ -28,7 +29,10 @@ export function Board(mark1: Mark, mark2: Mark) {
     return true
   }
 
-  const getWinner = () => {
+  const getWinner = (): {
+    mark: Mark | undefined
+    winningIndexes: number[]
+  } => {
     for (const mark of MARKS) {
       for (const pattern of WINNING_PATTERNS) {
         let win = true
@@ -48,7 +52,7 @@ export function Board(mark1: Mark, mark2: Mark) {
     return { mark: undefined, winningIndexes: [] as number[] }
   }
 
-  const setMove = (mark: Mark, index: number) => {
+  const setMove = (mark: Mark, index: number): void => {
     if (mark !== mark1 && mark !== mark2) {
       throw new Error(`Mark ${mark} is invalid`)
     }
@@ -69,12 +73,12 @@ export function Board(mark1: Mark, mark2: Mark) {
     emptySlots.splice(emptySlots.indexOf(index), 1)
   }
 
-  const resetBoard = () => {
+  const resetBoard = (): void => {
     board.fill('.')
     emptySlots.splice(0, emptySlots.length, ...Array.from(board.keys()))
   }
 
-  const getEmptySlots = () => emptySlots
+  const getEmptySlots = (): number[] => emptySlots
 
   return {
     getBoard,
